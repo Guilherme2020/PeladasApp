@@ -8,26 +8,17 @@
               <v-toolbar dark color="primary">
                 <v-toolbar-title>Login Peladas</v-toolbar-title>
                 <v-spacer></v-spacer>
-                <v-tooltip bottom>
 
-                  <span>Source</span>
-                </v-tooltip>
-                <v-tooltip right>
-                  <v-btn slot="activator" icon large href="https://codepen.io/johnjleider/pen/wyYVVj" target="_blank">
-                    <v-icon large>mdi-codepen</v-icon>
-                  </v-btn>
-                  <span>Codepen</span>
-                </v-tooltip>
               </v-toolbar>
               <v-card-text>
                 <v-form>
-                  <v-text-field prepend-icon="person" name="login" label="Login" type="text"></v-text-field>
-                  <v-text-field id="password" prepend-icon="lock" name="password" label="Password" type="password"></v-text-field>
+                  <v-text-field prepend-icon="person" v-model="username" name="username" label="Login" type="text"></v-text-field>
+                  <v-text-field id="password" prepend-icon="lock"  v-model="password" name="password" label="Password" type="password"></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primary">Login</v-btn>
+                <v-btn v-on:click.prevent="sigin" color="primary">Login</v-btn>
               </v-card-actions>
             </v-card>
           </v-flex>
@@ -36,7 +27,7 @@
     </v-content>
     <v-content>
       <h1>Area Publica </h1>
-      <!--<v-card>-->
+
       <v-container
         fluid
         grid-list-md
@@ -49,10 +40,10 @@
           <v-flex
             xs12 sm4 md5
             v-for="pelada of peladas"
-            key=""
+
           >
 
-            <v-card   class="elevation-12">
+            <v-card   key="pelada.id" class="elevation-12">
               <v-toolbar dark color="primary">
                 <v-toolbar-title>Nome: {{ pelada.nome}}.</v-toolbar-title>
                 <v-spacer></v-spacer>
@@ -71,7 +62,6 @@
           </v-flex>
         </v-layout>
       </v-container>
-      <!--</v-card>-->
     </v-content>
 
   </v-app>
@@ -80,16 +70,35 @@
 <script>
   import axios from 'axios'
   const url ='http://127.0.0.1:8000/api/peladas/';
-  const headers = {
-    'Content-Type': 'application/x-www-form-urlencoded',
-  };
+
   export default {
     data () {
       return {
-        peladas: []
+        username:'',
+        password:'',
+        peladas: [],
+        login_message: false
       }
     },
-
+    methods:{
+      sigin(){
+         const endpoint = 'http://127.0.0.1:8000/api/login';
+          const headers = {
+            'Content-Type': 'application/json',
+          };
+          const  payload = {
+           "username":this.username,
+            "password" : this.password
+         };
+          axios.post(endpoint,payload,{headers:headers})
+            .then((response) => {
+                console.log(response.data.token);
+                localStorage.setItem("token",response.data.token)
+            }).catch(err => {
+              this.login_message = err.message
+          })
+      },
+    },
     mounted (){
       axios.get(url)
 
