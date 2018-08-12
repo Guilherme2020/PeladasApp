@@ -95,7 +95,7 @@
                 console.log(response.data.token);
                 localStorage.setItem("token",response.data.token)
             }).catch(err => {
-              this.login_message = err.message
+              this.login_message = err
           })
       },
     },
