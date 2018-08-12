@@ -36,25 +36,42 @@
     </v-content>
     <v-content>
       <h1>Area Publica </h1>
-      <v-container fluid fill-height>
-        <v-layout >
-          <v-flex xs12 sm8 md4>
-            <div>
-            <v-card  class="elevation-12">
+      <!--<v-card>-->
+      <v-container
+        fluid
+        grid-list-md
+        fill-height
+      >
+        <v-layout
+
+          row wrap
+          >
+          <v-flex
+            xs12 sm4 md5
+            v-for="pelada of peladas"
+            key=""
+          >
+
+            <v-card   class="elevation-12">
               <v-toolbar dark color="primary">
-                <v-toolbar-title>Peladas.</v-toolbar-title>
+                <v-toolbar-title>Nome: {{ pelada.nome}}.</v-toolbar-title>
                 <v-spacer></v-spacer>
 
 
               </v-toolbar>
               <v-card-text>
-                {{peladas.nome}}
+                <span class="headline black--text">Dono:</span> {{pelada.dono.username}}
+              </v-card-text>
+              <v-card-text>
+                 <span class=" headline black--text">email :</span> {{pelada.dono.email}}
+
               </v-card-text>
             </v-card>
-            </div>
+
           </v-flex>
         </v-layout>
       </v-container>
+      <!--</v-card>-->
     </v-content>
 
   </v-app>
@@ -63,7 +80,9 @@
 <script>
   import axios from 'axios'
   const url ='http://127.0.0.1:8000/api/peladas/';
-
+  const headers = {
+    'Content-Type': 'application/x-www-form-urlencoded',
+  };
   export default {
     data () {
       return {
@@ -72,8 +91,16 @@
     },
 
     mounted (){
-      axios.get(url).then( response => (this.peladas = response.data))
+      axios.get(url)
 
+        .then((response) => {
+          console.log(response.data);
+          this.peladas = response.data;
+//           response.data;
+        })
+        .catch(error => {
+          console.log(error)
+        })
 
     },
 
