@@ -9,8 +9,9 @@ Vue.use(Router);
 export default new Router({
   mode: 'history',
   routes: [
+
     {path: '/auth/login',component:Login, titulo:'Login'},
-    // { path: '', component: Home, titulo: 'Home'},
+    { path: '/home', name: 'Home',component: Home, titulo: 'Home'},
 
     // { path: '*', redirect: '/' }
 

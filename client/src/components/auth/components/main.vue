@@ -12,8 +12,8 @@
               </v-toolbar>
               <v-card-text>
                 <v-form>
-                  <v-text-field prepend-icon="person" v-model="username" name="username" label="Login" type="text"></v-text-field>
-                  <v-text-field id="password" prepend-icon="lock"  v-model="password" name="password" label="Password" type="password"></v-text-field>
+                  <v-text-field prepend-icon="person" v-model="user.username" name="username" label="Login" type="text"></v-text-field>
+                  <v-text-field id="password" prepend-icon="lock"  v-model="user.password" name="password" label="Password" type="password"></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
@@ -43,7 +43,7 @@
 
           >
 
-            <v-card   key="pelada.id" class="elevation-12">
+            <v-card    class="elevation-12">
               <v-toolbar dark color="primary">
                 <v-toolbar-title>Nome: {{ pelada.nome}}.</v-toolbar-title>
                 <v-spacer></v-spacer>
@@ -74,29 +74,37 @@
   export default {
     data () {
       return {
-        username:'',
-        password:'',
+        user:{
+          username:'',
+          password:'',
+        },
         peladas: [],
         login_message: false
       }
     },
     methods:{
       sigin(){
-         const endpoint = 'http://127.0.0.1:8000/api/login';
-          const headers = {
-            'Content-Type': 'application/json',
-          };
-          const  payload = {
-           "username":this.username,
-            "password" : this.password
-         };
-          axios.post(endpoint,payload,{headers:headers})
-            .then((response) => {
-                console.log(response.data.token);
-                localStorage.setItem("token",response.data.token)
-            }).catch(err => {
-              this.login_message = err
-          })
+         // const endpoint = 'http://127.0.0.1:8000/api/login';
+         //  const headers = {
+         //    'Content-Type': 'application/json',
+         //  };
+         //  const  payload = {
+         //   "username":this.username,
+         //    "password" : this.password
+         // };
+          // axios.post(endpoint,payload,{headers:headers})
+          //   .then((response) => {
+          //       console.log(response.data.token);
+          //       console.log(response.data.user_name);
+          //       console.log(response.data.user_id);
+          //       console.log(response.data.user_email);
+          //       localStorage.setItem("token",response.data.token);
+          //       const  user_name = localStorage.setItem("user_name",response.data.user_name);
+          //
+          //   }).catch(err => {
+          //     this.login_message = err
+          // })
+          this.$store.dispatch('login',this.user)
       },
     },
     mounted (){
