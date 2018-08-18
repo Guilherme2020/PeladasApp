@@ -19,8 +19,15 @@ Vue.config.productionTip = false;
 Vue.use(Vuex);
 /* eslint-disable no-new */
 
-
+// Vue.http.headers.common['Access-Control-Allow-Origin'] = true;
+// axios.http.headers.common['Access-Control-Allow-Origin'] = '*';
+window.axios = {
+  'Accept': 'application/json',
+  'Content-Type': 'application/json',
+  'Access-Control-Allow-Origin': '*'
+};
 new Vue({
+
   store,
   el: '#app',
   router,
