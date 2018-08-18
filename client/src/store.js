@@ -2,6 +2,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios'
+import Token from './services/token'
 
 import router from "./router/index";
 
@@ -9,6 +10,10 @@ Vue.use(Vuex);
 
 const state = {
 
+  user:{
+    name: "",
+    email: "",
+  },
 };
 
 const mutations = {
@@ -18,27 +23,28 @@ const mutations = {
 const actions = {
 
     login(context, {username,password}){
-      const headers = {
-        'Content-Type': 'application/json',
-      };
+      // const headers = {
+      //   'Content-Type': 'application/json',
+      // };
+      Token.acessToken(username,password)
 
-      axios.post('http://127.0.0.1:8000/api/login',{username,password},{headers:headers})
-        .then((response) => {
-                if(response.status == 200){
-                  console.log(response.data.token)
-                  console.log(response.data.user_name);
-                  console.log(response.data.user_id);
-                  console.log(response.data.user_email);
-                  // this.$router.push(Home)
-                  router.push({ name: 'Home' })
-                  // this.$router.push({titulo: 'Home'})
+      // router.push({ name: 'Home' })
 
-
-                }
-        })
-        .catch(error => {
-          console.log(error.message)
-        })
+      // axios.post('http://127.0.0.1:8000/api/login',{username,password},{headers:headers})
+      //   .then((response) => {
+      //           if(response.status == 200){
+      //             console.log(response.data.token)
+      //             console.log(response.data.user_name);
+      //             console.log(response.data.user_id);
+      //             console.log(response.data.user_email);
+      //             router.push({ name: 'Home' })
+      //
+      //
+      //           }
+      //   })
+      //   .catch(error => {
+      //     console.log(error.message)
+      //   })
 
     }
 };

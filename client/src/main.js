@@ -10,15 +10,20 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import store from './store'
 import Vuex from 'vuex'
+import SessionStorage from './services/session-storage'
+
+
 Vue.use(VueAxios, axios);
 Vue.use(Vuetify);
 Vue.config.productionTip = false;
 Vue.use(Vuex);
 /* eslint-disable no-new */
+
+
 new Vue({
   store,
   el: '#app',
   router,
   components: { App },
   template: '<App/>'
-})
+});

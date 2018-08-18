@@ -11,6 +11,9 @@
 
               </v-toolbar>
               <v-card-text>
+                <div class="" v-if="error.error">
+                    {{error.message}}
+                </div>
                 <v-form>
                   <v-text-field prepend-icon="person" v-model="user.username" name="username" label="Login" type="text"></v-text-field>
                   <v-text-field id="password" prepend-icon="lock"  v-model="user.password" name="password" label="Password" type="password"></v-text-field>
@@ -69,6 +72,7 @@
 
 <script>
   import axios from 'axios'
+  // import router from "./router/index";
   const url ='http://127.0.0.1:8000/api/peladas/';
 
   export default {
@@ -78,8 +82,14 @@
           username:'',
           password:'',
         },
+        error:{
+          error:false,
+          message: ''
+        },
         peladas: [],
-        login_message: false
+        login_message: false,
+
+
       }
     },
     methods:{
@@ -105,6 +115,21 @@
           //     this.login_message = err
           // })
           this.$store.dispatch('login',this.user)
+            .then((response)=>{
+
+            }).catch((respoonseErr) => {
+              console.log(respoonseErr)
+            })
+            // .catch(responseError => {
+            //   this.error.error = true;
+            //   if(responseError.status === 404){
+            //       this.error.message  = responseError.data.message
+            //   }else{
+            //       this.error.message = 'login falhou.'
+            //   }
+            //
+            // })
+
       },
     },
     mounted (){
@@ -114,9 +139,6 @@
           console.log(response.data);
           this.peladas = response.data;
 //           response.data;
-        })
-        .catch(error => {
-          console.log(error)
         })
 
     },
