@@ -26,7 +26,13 @@ export default {
   getUserEmail(key){
       return window.sessionStorage[key]
   },
-
+  setUserId(key,value){
+    window.sessionStorage[key] = value;
+    return window.sessionStorage[key];
+  },
+  getUserId(key){
+      return window.sessionStorage[key]
+  },
   setObject(key,value){
     window.sessionStorage[key] = JSON.stringify(value);
     return this.getObject(key);

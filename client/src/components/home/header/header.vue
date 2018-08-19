@@ -1,0 +1,58 @@
+<script>
+
+  export default {
+    data: () => ({
+      types: ['Places to Be', 'Places to See'],
+      cards: ['Good', 'Best', 'Finest'],
+      socials: [
+        {
+          icon: 'fab fa-facebook',
+          color: 'indigo'
+        },
+        {
+          icon: 'fab fa-linkedin',
+          color: 'cyan darken-1'
+        },
+        {
+          icon: 'fab fa-instagram',
+          color: 'red lighten-3'
+        }
+      ]
+    }),
+
+    methods: {
+      getImage () {
+        const min = 550
+        const max = 560
+
+        return Math.floor(Math.random() * (max - min + 1)) + min
+      }
+    }
+  }
+</script>
+
+<style scoped>
+
+</style>
+<template>
+
+  <v-toolbar dark color="red">
+    <v-spacer></v-spacer>
+    <v-toolbar-title  style="margin: 30%" class= "white--text">PeladasApp</v-toolbar-title>
+    <v-toolbar-items style="margin:10px;">
+        <v-btn dark color="white" style="color:red">
+          Jogadores
+        </v-btn>
+        <v-btn dark color="white" style="color:red">
+          Configuracao
+        </v-btn>
+
+      <v-btn dark color="white" style="color:red">
+        Sair
+      </v-btn>
+
+
+    </v-toolbar-items>
+  </v-toolbar>
+
+</template>

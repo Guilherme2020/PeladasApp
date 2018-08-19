@@ -10,7 +10,6 @@ Vue.use(Vuex);
 
 const  userName =  window.sessionStorage.getItem("username");
 const userEmail = window.sessionStorage.getItem("email");
-
 const state = {
   user:{
     name: userName,

@@ -22,7 +22,12 @@ export default {
     get userEmail(){
         return SessionStorage.getUserEmail('email')
     },
-
+    set userId(value){
+      SessionStorage.setUserId('id',value)
+    },
+    get userId(){
+        return SessionStorage.getUserId('id')
+    },
 
     acessToken(username,password){
 
@@ -36,6 +41,8 @@ export default {
           console.log(response.data.user_email);
 
           this.userEmail = response.data.user_email;
+
+          this.userId = response.data.user_id;
 
           console.log(response.data.user_id);
           router.push({ name: 'Home' })
