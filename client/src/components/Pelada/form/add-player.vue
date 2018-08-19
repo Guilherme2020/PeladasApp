@@ -67,7 +67,7 @@
       ],
       raitingRules: [
         v => !!v || 'Raiting is Required',
-        v => v > 5 || 'Raiting ultrapassou'
+        v => v.valueOf() <= 5 || 'Raiting ultrapassou'
         // v => /.+@.+/.test(v) || 'E-mail must be valid'
       ]
     }),
