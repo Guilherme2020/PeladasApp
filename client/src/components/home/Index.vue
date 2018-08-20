@@ -27,6 +27,9 @@
             :key="pelada.nome"
           >
             <!--:src="prato.image"-->
+            <router-link>
+
+            </router-link>
             <v-card  hover >
 
               <v-toolbar dark color="red">
@@ -43,17 +46,17 @@
                 <span class="headline black--text">Id: {{pelada.id}}</span>
               </v-card-text>
               <v-card-text>
-                <span class="headline black--text">Dono: {{pelada.dono.username}}</span>
+                <span class="headline black--text">Dono: {{pelada.dono}}</span>
               </v-card-text>
               <v-card-text>
-                <span class=" headline black--text">email: {{pelada.dono.email}} </span>
+                <span class=" headline black--text">Limite de Gols: {{pelada.configuracao.limite_gols}} </span>
 
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn icon>
                   <v-icon
-                    @click="peladaId"
+                    @click="peladaId(pelada.id)"
                   >
                     visibility
                   </v-icon>
@@ -195,11 +198,12 @@
       },
       methods:{
 
-          peladaId(){
-            const id = this.peladaUserId.id;
+          peladaId(id){
+            // const id = this.peladaUser[1].id;
+            // alert(JSON.stringify(id));
             router.push(
               {
-                path: '/pelada/'+id
+                path: `/pelada/`+id
               }
             )
 
@@ -212,12 +216,13 @@
               Authorization:'Token '+ token_export
             }
 
-          };
+           };
 
-          axios.get(endpoint,{ headers: authe.headers }).then((response)=>{
-            console.log(response.data);
-            this.peladaUser = response.data
-          });
+          axios.get(endpoint,{ headers: authe.headers })
+            .then((response)=>{
+                console.log(response.data);
+                    this.peladaUser = response.data
+            });
 
 
       },

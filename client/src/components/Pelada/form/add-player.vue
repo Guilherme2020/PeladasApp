@@ -64,7 +64,7 @@
       ],
       dados:{
         name: '',
-        raiting: '',
+        raiting: null,
       },
 
       nameRules: [
@@ -80,10 +80,18 @@
     created(){
 
     },
+    props:['id'],
+    computed:{
+      getIdRouter:function(){
+        if(this.id != null){
+          return this.id
+        }
+      }
+    },
     methods:{
       postData(){
-          const id = sessionStorage.getItem("id");
-
+          // const id = sessionStorage.getItem("id");
+          const id = this.getIdRouter;
           const token_export = sessionStorage.getItem("token");
           const authe = {
             headers: {
@@ -95,7 +103,7 @@
           const  data = {
               "nome": this.dados.name,
               "rating": this.dados.raiting,
-              "pelada": sessionStorage.getItem("id")
+              "pelada": this.getIdRouter
           };
           axios.post("http://127.0.0.1:8000/api/jogadores/",data,{headers:authe.headers})
             .then((response)=>{

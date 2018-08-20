@@ -1,4 +1,5 @@
 <script>
+  import router from '../../../router/index'
 
   export default {
     data: () => ({
@@ -21,6 +22,12 @@
     }),
 
     methods: {
+      logout(){
+
+          sessionStorage.removeItem("token");
+          router.push({path: '/auth/login'})
+
+      },
       getImage () {
         const min = 550
         const max = 560
@@ -47,8 +54,12 @@
           Configuracao
         </v-btn>
 
-      <v-btn dark color="white" style="color:red">
+      <v-btn
+        @click="logout()"
+        dark color="white"
+        style="color:red">
         Sair
+
       </v-btn>
 
 

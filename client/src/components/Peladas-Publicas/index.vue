@@ -28,12 +28,9 @@
 
               </v-toolbar>
               <v-card-text>
-                <span class="headline black--text">Dono:</span> {{pelada.dono.username}}
+                <span class="headline black--text">Dono:</span> {{pelada.dono}}
               </v-card-text>
-              <v-card-text>
-                <span class=" headline black--text">email :</span> {{pelada.dono.email}}
 
-              </v-card-text>
             </v-card>
 
           </v-flex>

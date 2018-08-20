@@ -14,8 +14,8 @@ export default new Router({
     {path: '/peladas',component: PeladasPublicas, titulo: 'Peladas'},
     {path: '/auth/login',component:Login, titulo:'Login'},
     { path: '/home', name: 'Home',component: Home, titulo: 'Home'},
-    { path: '/pelada/:id',name:'Pelada',component:Pelada, titulo: 'Pelada'},
-    {path: '/pelada/:id/jogador-add',name:'AddJogador',component:AddJogador,titulo:'AddJogador'},
+    { path: '/pelada/:id',name:'Pelada',component:Pelada, titulo: 'Pelada', props: true},
+    {path: '/pelada/:id/jogador-add',name:'AddJogador',component:AddJogador,titulo:'AddJogador',props:true},
     { path: '*', redirect: '/peladas' },
     // {path: "/configuracao",name: "",component:'',titulo:''}
 
