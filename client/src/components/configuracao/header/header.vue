@@ -15,3 +15,11 @@
     </v-toolbar-items>
   </v-toolbar>
 </template>
+
+<style>
+
+</style>
+
+<script>
+
+</script>

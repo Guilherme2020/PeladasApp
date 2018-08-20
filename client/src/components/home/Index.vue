@@ -27,13 +27,13 @@
             :key="pelada.nome"
           >
             <!--:src="prato.image"-->
-            <router-link>
+            <!--<router-link>-->
 
-            </router-link>
+            <!--</router-link>-->
             <v-card  hover >
 
-              <v-toolbar dark color="red">
-                <v-toolbar-title>Nome-Pelada: {{pelada.nome}} </v-toolbar-title>
+              <v-toolbar dark color="white">
+                <v-toolbar-title dark color="red" style="color: red">Nome-Pelada: {{pelada.nome}} </v-toolbar-title>
                 <v-spacer></v-spacer>
               </v-toolbar>
               <v-card-media
@@ -72,6 +72,7 @@
 
           </v-flex>
         </v-layout>
+
       </v-container>
 
     </v-content>
@@ -145,7 +146,11 @@
   <!--</v-content>-->
 <!--</v-app>-->
 
-
+<style scoped>
+  #inspire{
+    height: 1220px;
+  }
+</style>
 
 <script>
   import axios from 'axios'
@@ -190,10 +195,10 @@
         //   const {email} = this.$store.state.user;
         //   return `${email}`
         // },
-        userName(){
-            return this.store.state.user.name
-
-        },
+        // userName(){
+        //     return this.store.state.user.name
+        //
+        // },
 
       },
       methods:{

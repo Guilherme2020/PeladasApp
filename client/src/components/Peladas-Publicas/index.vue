@@ -28,7 +28,10 @@
 
               </v-toolbar>
               <v-card-text>
-                <span class="headline black--text">Dono:</span> {{pelada.dono}}
+                <span class="headline black--text">Dono_id: {{pelada.dono}}</span>
+              </v-card-text>
+              <v-card-text>
+                <span class="headline black--text">Tempo de duração:</span> <h2>{{pelada.configuracao.limite_gols}} </h2>
               </v-card-text>
 
             </v-card>

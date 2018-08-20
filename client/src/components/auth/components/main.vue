@@ -7,23 +7,26 @@
         <v-layout align-center justify-center>
           <v-flex xs12 sm8 md4>
             <v-card class="elevation-12">
-              <v-toolbar dark color="red">
-                <v-toolbar-title>Login Peladas</v-toolbar-title>
+              <v-toolbar dark color="white">
+                <v-toolbar-title dark color="red" style="color: red">Login Peladas</v-toolbar-title>
                 <v-spacer></v-spacer>
 
               </v-toolbar>
               <v-card-text>
-                <div class="" v-if="error.error">
-                    {{error.message}}
+                <div v-if=!sigin>
+                    <v-show>
+                        error
+
+                    </v-show>
                 </div>
                 <v-form>
-                  <v-text-field prepend-icon="person" v-model="user.username" name="username" label="Login" type="text"></v-text-field>
-                  <v-text-field id="password" prepend-icon="lock"  v-model="user.password" name="password" label="Password" type="password"></v-text-field>
+                  <v-text-field prepend-icon="person" v-model="user.username" name="username" label="Login" type="text" :rules="nameRules" ></v-text-field>
+                  <v-text-field id="password" prepend-icon="lock"  v-model="user.password" name="password" label="Password" :rules="passWordRules" type="password"></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn v-on:click.prevent="sigin" color="red" style="color: aliceblue">Login</v-btn>
+                <v-btn v-on:click.prevent="sigin" color="white" style="color: red">Login</v-btn>
               </v-card-actions>
             </v-card>
           </v-flex>
@@ -50,6 +53,13 @@
           username:'',
           password:'',
         },
+        nameRules: [
+          v => !!v || 'Name this player required',
+          v => v.length <= 10 || 'Name must be less than 10 characters'
+        ],
+        passWordRules:[
+          v => !!v || 'PassWord Required'
+        ],
         error:{
           error:false,
           message: ''
@@ -85,7 +95,11 @@
             .then((response)=>{
 
             }).catch((respoonseErr) => {
-              console.log(respoonseErr)
+              // console.log(respoonseErr);
+              // if(respoonseErr.status == 404){
+              //     this.error.message = respoonseErr.status;
+              //
+              // }
             })
             // .catch(responseError => {
             //   this.error.error = true;

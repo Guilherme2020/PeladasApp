@@ -25,6 +25,9 @@
       logout(){
 
           sessionStorage.removeItem("token");
+          sessionStorage.removeItem("id");
+          sessionStorage.removeItem("username");
+
           router.push({path: '/auth/login'})
 
       },
@@ -43,15 +46,17 @@
 </style>
 <template>
 
-  <v-toolbar dark color="red">
+  <v-toolbar dark color="white">
     <v-spacer></v-spacer>
-    <v-toolbar-title  style="margin: 30%" class= "white--text">PeladasApp</v-toolbar-title>
+    <v-toolbar-title  style="margin: 30%" class= "red--text">PeladasApp</v-toolbar-title>
     <v-toolbar-items style="margin:10px;">
         <v-btn dark color="white" style="color:red">
           Jogadores
         </v-btn>
         <v-btn dark color="white" style="color:red">
-          Configuracao
+          <router-link style="color:red; text-decoration: none;"  :to="{ path: '/configuracao'  }" exact>Configuracao
+          </router-link>
+
         </v-btn>
 
       <v-btn

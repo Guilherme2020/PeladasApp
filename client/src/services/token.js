@@ -30,7 +30,7 @@ export default {
     },
 
     acessToken(username,password){
-
+        const err = '';
         return Token.acessToken(username,password).then((response) => {
           this.token = response.data.token;
 
@@ -49,7 +49,9 @@ export default {
 
         })
           .catch((responseErr) => {
-            console.log(responseErr)
+
+            console.log(responseErr.message)
+
 
 
           })

@@ -24,7 +24,10 @@
               <!--<td>{{peladaUse.rating}}</td>-->
             <!--</tr>-->
         <!--</div>-->
-        <v-container>
+
+        <v-container  fluid
+                      grid-list-md
+                      fill-height>
           <v-data-table  :headers="headers" :items="peladaUserId.jogadores">
             <template slot="items" slot-scope="props">
               <td>{{props.item.id}}</td>
