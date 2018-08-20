@@ -5,6 +5,7 @@
         <div style="margin-top: 5%">
           <h1>Detalhes da Sua Pelada</h1>
 
+          <!--{{sucess_data}}-->
 
           <h2>Nome: {{peladaUserId.nome}}</h2>
 
@@ -47,6 +48,8 @@
 
 </template>
 <script>
+    import response from './form/add-player'
+
     import Header from "../home/header/header"
     import axios from 'axios';
     import router from '../../router/index'
@@ -59,6 +62,7 @@
       },
       data () {
         return{
+          sucess_data: response,
           peladaUserId:[]
         }
       },

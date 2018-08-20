@@ -20,12 +20,14 @@
               label="Name"
               required
             ></v-text-field>
-            <v-text-field
-              v-model="dados.raiting"
-              :rules="raitingRules"
-              label="Raiting"
-              required
-            ></v-text-field>
+            <!--<v-text-field-->
+              <!--v-model="dados.raiting"-->
+              <!--:rules="raitingRules"-->
+              <!--label="Raiting"-->
+              <!--required-->
+            <!--&gt;</v-text-field>-->
+
+            <my-star   v-bind:star-size="30"  active-color="red" v-model="dados.raiting"></my-star>
 
           </v-form>
            <v-btn
@@ -46,13 +48,17 @@
 <script>
   import axios from 'axios'
   import router from '../../../router/index'
-
+  import Star  from 'vue-star-rating'
   const  endpointAddJogador = 'http://127.0.0.1:8000/api/jogadores/';
+  export const response = this.sucess;
   export default {
-
+    components:{
+      "my-star": Star
+    },
     data: () => ({
       valid: false,
       select: null,
+      sucess: '',
       items: [
 
       ],
@@ -94,6 +100,7 @@
           axios.post("http://127.0.0.1:8000/api/jogadores/",data,{headers:authe.headers})
             .then((response)=>{
                 console.log(response);
+                this.sucess = response.status;
                 router.push(
                 {
                   path: '/pelada/'+id
@@ -104,6 +111,7 @@
             .catch(err =>{
                 console.log(err.message)
           })
+
       },
     }
   }

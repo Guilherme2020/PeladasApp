@@ -6762,6 +6762,10 @@ vue-router@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.0.1.tgz#d9b05ad9c7420ba0f626d6500d693e60092cc1e9"
 
+vue-star-rating@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/vue-star-rating/-/vue-star-rating-1.6.0.tgz#8586d9d100555fd367df1e3b769669e837089209"
+
 vue-style-loader@^3.0.0, vue-style-loader@^3.0.1:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-3.1.2.tgz#6b66ad34998fc9520c2f1e4d5fa4091641c1597a"

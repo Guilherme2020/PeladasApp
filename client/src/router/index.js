@@ -16,7 +16,8 @@ export default new Router({
     { path: '/home', name: 'Home',component: Home, titulo: 'Home'},
     { path: '/pelada/:id',name:'Pelada',component:Pelada, titulo: 'Pelada'},
     {path: '/pelada/:id/jogador-add',name:'AddJogador',component:AddJogador,titulo:'AddJogador'},
-    { path: '*', redirect: '/home' }
+    { path: '*', redirect: '/peladas' },
+    // {path: "/configuracao",name: "",component:'',titulo:''}
 
 
   ]

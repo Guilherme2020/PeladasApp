@@ -13,6 +13,13 @@ import Vuex from 'vuex'
 import SessionStorage from './services/session-storage'
 
 
+import StarRating from 'vue-star-rating'
+
+Vue.component('star-rating', StarRating);
+
+
+Vue.use(StarRating);
+
 Vue.use(VueAxios, axios);
 Vue.use(Vuetify);
 Vue.config.productionTip = false;
