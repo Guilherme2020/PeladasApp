@@ -1,9 +1,9 @@
-# PeladasAPi Single Page Application 
+# PeladasAPi Single Page Application
 
 
 > A **highly opinionated** Single Page Application starter with  of Vue.js and Django/Django-Rest-Framework.
 
-This package contains two separate projects to act as a starting point for a Single Page Application: a Vue.js project (created with vue-cli + webpack template) and a django-2.0/django-rest-framework  project.
+This package contains two separate projects to act as a starting point for a Single Page Application: a Vue.js project (created with vue-cli + webpack template),  a App mobile usinf Flutter/Dart and a django-2.0/django-rest-framework  project.
 
 
 ## Features
@@ -19,4 +19,3 @@ This package contains two separate projects to act as a starting point for a Sin
     * [Django 2.0](https://docs.djangoproject.com/)
     * Authentication with JWT
     * [Web service RESTful with Django-Rest-Framework](http://www.django-rest-framework.org/)
-
