@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import Q
+from django.core import validators
+import re
 
 
 # Create your models here.
@@ -14,6 +16,10 @@ class Jogador(models.Model):
     NOTA_CHOICES = tuple([(x, x) for x in range(1, 6)])
 
     nome = models.CharField(max_length=255, )
+    email = models.EmailField('E-mail', unique=True, blank=True, null=True)
+    phone_number = models.CharField(verbose_name=("Phone Number"), max_length=16, blank=True, null=True,
+                                    validators=[validators.RegexValidator(re.compile('^\+\d{13}|\(\d{2}\)[ ]\d{5}-\d{4}$'),
+                                    ("A phone number must be on this format: (99) 99999-9999"), "invalid")])
     rating = models.SmallIntegerField(verbose_name='Nota', choices=NOTA_CHOICES, default=3)
     pelada = models.ForeignKey('Pelada', related_name='jogadores', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
