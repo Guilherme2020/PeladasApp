@@ -28,6 +28,6 @@ Para consumo de api, mudar a porta da aplicação no  axios.
 ```
 
 ## ScreenCast
-	
+	* ScreenCast  (https://youtu.be/WT_M6OhPhmc)
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
