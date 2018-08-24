@@ -14,9 +14,10 @@ This package contains two separate projects to act as a starting point for a Sin
     * Route management with [Vue-Router](https://router.vuejs.org/)
     * Authentication with JWT
     * HTTP requests with [Axios](https://github.com/axios/axios)
+	* ScreenCast  (https://youtu.be/WT_M6OhPhmc)
 2. Client Side - Mobile
 	* Flutter/Dart
-
+	* ScreenCast (https://youtu.be/8IAQNXG7_GA)
 3. Server side
     * [Django 2.0](https://docs.djangoproject.com/)
     * Authentication with JWT
