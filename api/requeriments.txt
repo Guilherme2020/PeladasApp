@@ -11,7 +11,7 @@ django-filter==1.1.0
 django-oauth-toolkit==1.2.0
 django-rest-framework-social-oauth2==1.1.0
 django-rest-swagger==2.2.0
-djangorestframework==3.8.2
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 idna==2.7
 itypes==1.1.0
@@ -47,7 +47,7 @@ Django==2.0.6
 django-braces==1.13.0
 django-filter==1.1.0
 django-rest-swagger==2.2.0
-djangorestframework==3.8.2
+djangorestframework==3.11.2
 idna==2.7
 itypes==1.1.0
 Jinja2==2.10
